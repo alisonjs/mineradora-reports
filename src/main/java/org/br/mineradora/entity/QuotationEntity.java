@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
-@Table(name="quotation")
+@Table(name = "quotation")
 @Data
 @NoArgsConstructor
 public class QuotationEntity {
