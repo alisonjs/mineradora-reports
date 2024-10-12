@@ -13,9 +13,11 @@ import java.util.List;
 
 public class CSVHelper {
     public static ByteArrayInputStream opportunitiesToCSV(List<OpportunityDTO> opportunities){
-
-        final CSVFormat format = CSVFormat.DEFAULT
-                .withHeader("ID Proposta", "Cliente", "Preço por Tonelada", "Melhor cotação de Moeda");
+        final CSVFormat format =CSVFormat.Builder.create()
+                .setDelimiter(',')
+                .setHeader("ID Proposta", "Cliente", "Preço por Tonelada", "Melhor cotação de Moeda")
+                .setRecordSeparator(System.lineSeparator())
+                .build();
 
         try(ByteArrayOutputStream out = new ByteArrayOutputStream();
             CSVPrinter csvPrinter = new CSVPrinter(new PrintWriter(out), format);) {
